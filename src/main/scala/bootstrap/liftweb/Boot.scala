@@ -11,6 +11,7 @@ import Loc._
 import net.liftmodules.JQueryModule
 import net.liftweb.http.js.jquery._
 
+import code.snippet._
 
 /**
  * A class that's instantiated early and run.  It allows the application
@@ -24,7 +25,7 @@ class Boot {
     // Build SiteMap
     val entries = List(
       Menu.i("Home") / "index", // the simple way to declare a menu
-
+      APost.menu,
       // more complex because this menu allows anything in the
       // /static path to be visible
       Menu(Loc("Static", Link(List("static"), true, "/static/index"), 
@@ -53,6 +54,8 @@ class Boot {
     LiftRules.jsArtifacts = JQueryArtifacts
     JQueryModule.InitParam.JQuery=JQueryModule.JQuery172
     JQueryModule.init()
+
+
 
   }
 }
